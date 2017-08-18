@@ -1,8 +1,9 @@
 import java.util.List;
 import java.util.ArrayList;
+// import java.awt.event.ActionEvent;
+// import java.awt.event.ActionListener;
 
-
-public class Squad{
+public class Squad {
   private String mSquadName;
   private String mCause;
   private static int mSize;
