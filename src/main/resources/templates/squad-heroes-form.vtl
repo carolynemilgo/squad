@@ -1,13 +1,15 @@
 <h2>Assign Hero to $squad.getSquadName()</h2>
 
 <form action="/heroes" action="post">
-
+#if($heroes)
 <input id="squadId" name="squadId" type="hidden" value="$squad.getId()">
+#foreach ($hero in $heroes)
 <div class="form-group">
 
    $hero.getName()
-  <button type="submit" class="btn" value="assign" id="assign"> Assign</button>
+  <button type="submit" class="btn" value="$hero.getId()"> Assign</button>
 
 </div>
-
+#end
+#end
 </form>

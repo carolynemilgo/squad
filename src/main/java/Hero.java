@@ -1,7 +1,6 @@
 import java.util.List;
 import java.util.ArrayList;
-// import java.awt.event.ActionEvent;
-// import java.awt.event.ActionListener;
+
 
 public class Hero{
   private String mName;
@@ -10,7 +9,8 @@ public class Hero{
   private String mWeaknesses;
   private static List<Hero> instances=new ArrayList<Hero>();
   private int mId;
-  private boolean mAssign;
+  private int mSquadId;
+  //private boolean mAssign;
   //private List<Hero> mHeroes;
 
   public Hero(String name, int age, String powers, String weaknesses){
@@ -20,14 +20,23 @@ public class Hero{
     mWeaknesses=weaknesses;
     instances.add(this);
     mId=instances.size();
-    mAssign=false;
-  //  mHeroes=new ArrayList<Hero>();
+    //mAssign=false;
+    //mHeroes=new ArrayList<Hero>();
   }
-  public boolean isAssigned(){
-    return mAssign;
-  }
+  // public boolean isAssigned(){
+  //   return mAssign;
+  // }
 
-  public String getName(){
+
+public int getSquadId(){
+  return mSquadId;
+}
+
+public void assignSquad(int squadId){
+  mSquadId=squadId;
+
+}
+public String getName(){
     return mName;
   }
   public int getAge(){
