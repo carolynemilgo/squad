@@ -17,7 +17,7 @@ public class App{
 
    setPort(port);
 
-   
+
     staticFileLocation("/public");
     String layout="templates/layout.vtl";
 
@@ -25,6 +25,8 @@ public class App{
       Map <String, Object> model=new HashMap<String, Object>();
       //model.put("hero", request.session().attribute("hero"));
       model.put("template", "templates/index.vtl");
+      model.put("heroes",Hero.all());
+      model.put("squads",Squad.all());
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
@@ -115,20 +117,6 @@ get("/squads/:id", (request, response) ->{
     model.put("template", "templates/squad-heroes-form.vtl");
     return new ModelAndView(model, layout);
   }, new VelocityTemplateEngine());
-
-  // post("/heroes", (request, response) -> {
-  //           Map<String, Object> model = new HashMap<String, Object>();
-  //
-  //             Squad newSquad=new Squad(name, cause);
-  //             Hero newHero=new Hero(name, age, powers, weaknesses);
-  //             Squad.add(newHero);
-  //           //  newHero.joinSquad(squadId);
-  //
-  //             model.put("template", "templates/squads.vtl");
-  //
-  //        return new ModelAndView(model, layout);
-  //      }, new VelocityTemplateEngine());
-
 
   }
 }
