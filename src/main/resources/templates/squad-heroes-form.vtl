@@ -1,15 +1,26 @@
 <h2>Assign Hero to $squad.getSquadName()</h2>
+<p>These are all the heroes in $squad.getSquadName() squad</p>
+ #foreach ($hero in $squad.getHeroes())
+   <div>
+     <h3>$hero.getName()</h3>
+     <p>$hero.getAge()</p>
+     <p>$hero.getPowers()</p>
+     <p>$hero.getWeaknesses()</p>
+   </div>
 
-<form action="/heroes" action="post">
-#if($heroes)
+ #end
+
 <input id="squadId" name="squadId" type="hidden" value="$squad.getId()">
-#foreach ($hero in $heroes)
+#foreach ($hero in $heros)
 <div class="form-group">
-
-   $hero.getName()
+<ul> Existing Heroes </ul>
+  <li> $hero.getName()</li>
+  <p>$hero.getPowers()</p>
+  <p>$hero.getWeaknesses()</p>
+  <p>$hero.getAge()</p>
+  <form action="/squads/$squad.getId()/heroAssignment/$hero.getId()" method="post">
   <button type="submit" class="btn" value="$hero.getId()"> Assign</button>
+</form>
 
 </div>
 #end
-#end
-</form>

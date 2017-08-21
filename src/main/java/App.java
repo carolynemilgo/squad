@@ -7,6 +7,17 @@ import spark.template.velocity.VelocityTemplateEngine;
 
 public class App{
   public static void main(String[]args){
+    ProcessBuilder process = new ProcessBuilder();
+    Integer port;
+    if (process.environment().get("PORT") != null) {
+        port = Integer.parseInt(process.environment().get("PORT"));
+    } else {
+        port = 4567;
+    }
+
+   setPort(port);
+
+   
     staticFileLocation("/public");
     String layout="templates/layout.vtl";
 
@@ -86,9 +97,21 @@ get("/squads/:id", (request, response) ->{
   get("/squads/:id/heroes/new", (request, response) ->{
     Map<String, Object> model= new HashMap<String, Object>();
     Squad squad=Squad.find(Integer.parseInt(request.params(":id")));
-    Hero hero=Hero.find(Integer.parseInt(request.params(":id")));
+    //Hero heros=Hero.find(Integer.parseInt(request.params(":id")));
     model.put("squad", squad);
-    model.put("heroes", hero);
+    model.put("heros", Hero.all());
+    model.put("template", "templates/squad-heroes-form.vtl");
+    return new ModelAndView(model, layout);
+  }, new VelocityTemplateEngine());
+
+
+  post("/squads/:idOfSquad/heroAssignment/:idOfHero", (request, response) ->{
+    Map<String, Object> model= new HashMap<String, Object>();
+    Squad squad=Squad.find(Integer.parseInt(request.params(":idOfSquad")));
+    Hero hero=Hero.find(Integer.parseInt(request.params(":idOfHero")));
+    squad.addHeroToSquad(hero);
+    model.put("squad", squad);
+    model.put("heros", Hero.all());
     model.put("template", "templates/squad-heroes-form.vtl");
     return new ModelAndView(model, layout);
   }, new VelocityTemplateEngine());
