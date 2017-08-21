@@ -2,6 +2,7 @@ apply plugin:'java'
 apply plugin:'application'
 
 archivesBaseName="super-heroes"
+applicationName = "app"
 version='1.0'
 mainClassName="app"
 
