@@ -3,10 +3,30 @@
   <head>
     <title>Mad Libs!</title>
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='/app.css'>
   </head>
   <body>
-    <div class="container">
-      #parse( $template )
+    <div class="container-fluid">
+      <div class="row">
+
+      <div class="col-md-12">
+      <ul class="nav nav-tabs" style="align:center">
+  <li role="presentation" class="active"><a href="/">Home</a></li>
+  <li role="presentation"><a href="/squads">Squads</a></li>
+  <li role="presentation"><a href="/heroes">Heroes</a></li>
+<!-- <div class="row">
+  <div class="col-md-12">
+    <div class="header">
+
     </div>
+  </div>
+</div> -->
+</ul>
+      #parse( $template )
+
+</div>
+
+    </div>
+  </div>
   </body>
 </html>

@@ -1,0 +1,35 @@
+body{
+  background-image:url(../images/spiderman.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  }
+.addHeroes{
+  align-content: center;
+}
+
+.homePage{
+
+    border-radius: 25px;
+
+
+    background-repeat: repeat;
+    padding: 20px;
+    width: 1200px;
+    height: 1150px;
+
+}
+
+#rcorners6 {
+    border-radius: 15px 50px;
+    background: #73AD21;
+    padding: 20px;
+    width: 200px;
+    height: 150px;
+}
+/*.header{
+  height: 250px;
+  background-image: url(../images/league.jpg);
+  background-repeat: no-repeat;
+
+
+}*/

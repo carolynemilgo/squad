@@ -1,13 +1,23 @@
 <h1>Heroes List</h2>
 
 #if($heroes)
-<ul>
+<div class="col-md-12">
 #foreach($hero in $heroes)
-<li><a href="/heroes/$hero.getId()">$hero.getName()</a></li>
+<div class="col-md-4"><a href="/heroes/$hero.getId()">$hero.getName()</a>
+<p>Age: $hero.getAge()</p>
+<p>Powers: $hero.getPowers()</p>
+<p>Weaknesses: $hero.getWeaknesses()</p>
+
+
+</div>
+
 #end
-</ul>
-<p>No Heroes</p>
+
+<!-- <div class="row">
+<div class="col-md-6">Currently there are no heroes in the system</div>
+</div> -->
 #end
 
 <a href="/heroes/new">Add New Hero</a>
 <a href="/"> Return to home page</a>
+</div>

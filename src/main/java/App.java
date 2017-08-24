@@ -32,6 +32,7 @@ public class App{
 
     get("/heroes/new", (request, response) ->{
       Map <String, Object> model=new HashMap<String, Object>();
+      model.put("squads", Squad.all());
       model.put("template", "templates/hero-form.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
@@ -64,7 +65,7 @@ public class App{
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
-//allow users to create new squads through use of a form and post them
+//allow users to create new squads through use of a form and save them
 get("/squads/new", (request,response) ->{
       Map<String, Object> model=new HashMap<String, Object>();
       model.put("template", "templates/squad-form.vtl");
@@ -114,6 +115,7 @@ get("/squads/:id", (request, response) ->{
     squad.addHeroToSquad(hero);
     model.put("squad", squad);
     model.put("heros", Hero.all());
+    //model.put("template", "templates/assignSquad.vtl");
     model.put("template", "templates/squad-heroes-form.vtl");
     return new ModelAndView(model, layout);
   }, new VelocityTemplateEngine());
