@@ -14,7 +14,12 @@ Developed using Java and Spark
 4. Ensure that a Hero can only be in one Squad at a time. 
 
 ## Github repository
-Clone this project from the github repository (https://github.com/carolynemilgo/hangman) and run gradle run. Navigate to your browser and type http://localhost:4567/ to start creating Heroes and Squads before assigning Heros to advance certain causes
+Clone this project from the github repository (https://github.com/carolynemilgo/hangman) and run gradle run. Navigate to your browser and type http://localhost:4567/ to start creating Heroes and Squads before assigning Heros to advance certain causes. 
+
+
+##Heroku Access
+The app can be accessed on Heroku through the link https://git.heroku.com/cryptic-temple-59406.git
+
 
 
 
